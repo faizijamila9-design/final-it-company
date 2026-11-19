@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Hewad IT</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+    <section class="page-hero">
+        <div class="container">
+            <span class="eyebrow light">LET'S TALK</span>
+            <h1>Contact Hewad IT</h1>
+            <p>Tell us about your goals and how we can help.</p>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a> / Contact
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container contact-layout">
+            <div>
+                <span class="eyebrow">GET IN TOUCH</span>
+                <h2>Start a Conversation.</h2>
+                <p>Have a question or a project in mind? Reach out and let's explore the next step together.</p>
+
+                <div class="contact-detail">
+                    <i class="fa-regular fa-envelope"></i>
+                    <div>
+                        <b>Email</b>
+                        <span><a href="mailto:info@hewadit.com">info@hewadit.com</a></span>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <b>Location</b>
+                        <span>Kabul, Afghanistan</span>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <i class="fa-regular fa-clock"></i>
+                    <div>
+                        <b>Office Hours</b>
+                        <span>Saturday–Thursday · 9:00 AM–5:00 PM</span>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <i class="fa-solid fa-headset"></i>
+                    <div>
+                        <b>Typical Response</b>
+                        <span>Within one business day</span>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <h3>Send Us a Message</h3>
+
+                <div class="form-row">
+                    <label>
+                        Name
+                        <input type="text" name="name" autocomplete="name" required>
+                    </label>
+                    <label>
+                        Email
+                        <input type="email" name="email" autocomplete="email" required>
+                    </label>
+                </div>
+
+                <label>
+                    Subject
+                    <input type="text" name="subject" required>
+                </label>
+
+                <div class="form-row">
+                    <label>
+                        Project Type
+                        <select name="projectType" required>
+                            <option value="">Select a service</option>
+                            <option>Web Development</option>
+                            <option>Custom Software</option>
+                            <option>Mobile App</option>
+                            <option>IT Infrastructure</option>
+                            <option>UI/UX Design</option>
+                            <option>IT Consulting</option>
+                        </select>
+                    </label>
+                    <label>
+                        Estimated Timeline
+                        <select name="timeline" required>
+                            <option value="">Select a timeline</option>
+                            <option>As soon as possible</option>
+                            <option>1–3 months</option>
+                            <option>3–6 months</option>
+                            <option>Still planning</option>
+                        </select>
+                    </label>
+                </div>
+
+                <label>
+                    Message
+                    <textarea name="message" rows="5" required></textarea>
+                </label>
+
+                <button class="btn btn-primary" type="submit">Send Message</button>
+                <p class="form-note" id="formNote" aria-live="polite"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-placeholder">
+                <i class="fa-solid fa-location-dot"></i>
+                <h3>Visit Hewad IT in Kabul</h3>
+                <p>
+                    Kabul, Afghanistan · Please contact us before visiting
+                    to arrange an appointment and confirm the office location.
+                </p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Kabul%2C%20Afghanistan"
+                   target="_blank"
+                   rel="noopener">
+                    Open in Google Maps
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+   <!-- WHAT HAPPENS NEXT -->
+
+<section class="section">
+    <div class="container">
+
+        <div class="section-heading center">
+            <span class="eyebrow">GETTING STARTED</span>
+            <h2>What Happens After You Contact Us?</h2>
+        </div>
+
+        <div class="process-grid">
+
+            <div class="process-item">
+                <span class="process-number">01</span>
+                <i class="fas fa-envelope-open-text"></i>
+                <h3>Your Inquiry</h3>
+                <p>
+                    Share your questions, requirements
+                    or project idea with us.
+                </p>
+            </div>
+
+            <div class="process-item">
+                <span class="process-number">02</span>
+                <i class="fas fa-comments"></i>
+                <h3>Discussion</h3>
+                <p>
+                    We discuss your expectations
+                    and understand your needs.
+                </p>
+            </div>
+
+            <div class="process-item">
+                <span class="process-number">03</span>
+                <i class="fas fa-file-contract"></i>
+                <h3>Project Planning</h3>
+                <p>
+                    We explore the scope, requirements
+                    and possible solutions.
+                </p>
+            </div>
+
+            <div class="process-item">
+                <span class="process-number">04</span>
+                <i class="fas fa-handshake"></i>
+                <h3>Next Steps</h3>
+                <p>
+                    We discuss the appropriate next
+                    steps for your project.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- CONTACT FAQ -->
+
+<section class="section soft">
+    <div class="container">
+
+        <div class="section-heading center">
+            <span class="eyebrow">NEED MORE INFORMATION?</span>
+            <h2>Common Questions</h2>
+        </div>
+
+        <div class="faq-list">
+
+            <details class="faq-item">
+                <summary>Where is Hewad IT located?</summary>
+                <p>
+                    Hewad IT is presented on this website
+                    as a company located in Kabul, Afghanistan.
+                    Please contact the company for its verified office address.
+                </p>
+            </details>
+
+            <details class="faq-item">
+                <summary>How can I discuss a new project?</summary>
+                <p>
+                    You can use the contact form on this page
+                    or contact the company through its official
+                    communication channels.
+                </p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Can businesses request customized solutions?</summary>
+                <p>
+                    Yes. Project requirements can be discussed
+                    to explore suitable customized technology solutions.
+                </p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Can I ask about your services before starting?</summary>
+                <p>
+                    Of course. You can send an inquiry to
+                    learn more about the services and project process.
+                </p>
+            </details>
+
+        </div>
+
+    </div>
+</section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
