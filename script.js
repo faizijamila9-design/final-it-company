@@ -97,11 +97,6 @@ if (header) {
                         <i class="fa-solid fa-moon"></i>
                     </button>
 
-                    <a href="contact.html" class="nav-cta">
-                        Request a Quote
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-
                 </nav>
 
             </div>
