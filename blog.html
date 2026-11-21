@@ -193,37 +193,63 @@
 </section>
 <!-- NEWSLETTER -->
 
-<section class="newsletter">
-    <div class="container newsletter-inner">
+<!-- NEWSLETTER SECTION -->
+<section class="newsletter-section">
 
-        <div>
-            <span class="eyebrow light">STAY CONNECTED</span>
-            <h2>Stay Updated With Technology.</h2>
-            <p>
-                Subscribe to receive company updates
-                and technology insights.
-            </p>
-        </div>
+    <div class="newsletter-content">
 
-        <form id="newsletterForm" class="newsletter-form">
+        <span class="newsletter-label">
+            STAY CONNECTED
+        </span>
+
+        <h2>Stay Updated With Technology.</h2>
+
+        <p>
+            Subscribe to receive company updates
+            and technology insights.
+        </p>
+
+        <!-- NETLIFY NEWSLETTER FORM -->
+        <form
+            name="newsletter"
+            method="POST"
+            action="/thank-you.html"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            class="newsletter-form"
+        >
 
             <input
+                type="hidden"
+                name="form-name"
+                value="newsletter"
+            >
+
+            <!-- Spam protection -->
+            <div class="honeypot-field">
+                <label>
+                    Leave this field empty:
+                    <input type="text" name="bot-field">
+                </label>
+            </div>
+
+            <!-- Email address -->
+            <input
                 type="email"
-                id="newsletterEmail"
+                name="email"
                 placeholder="Enter your email address"
+                autocomplete="email"
                 required
             >
 
             <button type="submit">
-                Subscribe
-                <i class="fas fa-arrow-right"></i>
+                Subscribe →
             </button>
-
-            <p id="newsletterNote"></p>
 
         </form>
 
     </div>
+
 </section>
 </main>
 
