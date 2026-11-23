@@ -209,32 +209,12 @@
             and technology insights.
         </p>
 
-        <!-- NETLIFY NEWSLETTER FORM -->
         <form
-            name="newsletter"
-            method="POST"
-            action="/thank-you.html"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
+            id="newsletterForm"
             class="newsletter-form"
         >
-
             <input
-                type="hidden"
-                name="form-name"
-                value="newsletter"
-            >
-
-            <!-- Spam protection -->
-            <div class="honeypot-field">
-                <label>
-                    Leave this field empty:
-                    <input type="text" name="bot-field">
-                </label>
-            </div>
-
-            <!-- Email address -->
-            <input
+                id="newsletterEmail"
                 type="email"
                 name="email"
                 placeholder="Enter your email address"
@@ -246,6 +226,7 @@
                 Subscribe →
             </button>
 
+            <p id="newsletterNote" class="newsletter-note" role="status" aria-live="polite"></p>
         </form>
 
     </div>

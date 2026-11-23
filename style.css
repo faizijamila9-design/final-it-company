@@ -1449,14 +1449,15 @@ img {
     transform: translateY(-3px);
 }
 
-/* Spam protection field */
-.honeypot-field {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
+.newsletter-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+.newsletter-form .newsletter-note {
+    margin: 0;
+    color: #ffd2d2;
+    font-size: 16px;
 }
 
 @media (max-width: 600px) {

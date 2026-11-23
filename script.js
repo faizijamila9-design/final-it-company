@@ -419,34 +419,48 @@ document.querySelectorAll(
     observer.observe(element);
 
 });
-/* NEWSLETTER FORM DEMO */
+/* NEWSLETTER SUBSCRIPTION */
 
 const newsletterForm =
     document.getElementById("newsletterForm");
 
 if (newsletterForm) {
 
-    newsletterForm.addEventListener("submit", function(event) {
-
+    newsletterForm.addEventListener("submit", async function(event) {
         event.preventDefault();
 
-        const email = document.getElementById(
-            "newsletterEmail"
-        ).value;
+        const email = document.getElementById("newsletterEmail");
+        const note = document.getElementById("newsletterNote");
+        const button = newsletterForm.querySelector('button[type="submit"]');
+        const buttonText = button.textContent;
 
-        const note = document.getElementById(
-            "newsletterNote"
-        );
+        note.textContent = "";
+        button.disabled = true;
+        button.textContent = "Subscribing...";
 
-        if (email.trim() !== "") {
+        try {
+            const response = await fetch("/api/subscribe", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email: email.value })
+            });
+            const result = await response.json();
 
-            note.textContent =
-                "Thank you for your interest in Hewad IT!";
+            if (!response.ok) {
+                throw new Error(result.error || "Subscription failed. Please try again.");
+            }
 
-            newsletterForm.reset();
-
+            window.location.href = "thank-you.html";
+        } catch (error) {
+            note.textContent = error instanceof Error
+                ? error.message
+                : "Subscription failed. Please try again.";
+        } finally {
+            button.disabled = false;
+            button.textContent = buttonText;
         }
-
     });
 
 }
