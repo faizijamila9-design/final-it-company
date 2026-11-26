@@ -1,3 +1,5 @@
 node_modules/
 data/subscribers.json
 data/subscribers.json.*.tmp
+data/contact-messages.json
+data/contact-messages.json.*.tmp

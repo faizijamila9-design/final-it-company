@@ -369,21 +369,45 @@ document.querySelectorAll("[data-filter]").forEach(button => {
 });
 
 
-/* CONTACT FORM DEMO */
+/* CONTACT FORM */
 
 const form = document.getElementById("contactForm");
 
 if (form) {
 
-    form.addEventListener("submit", event => {
-
+    form.addEventListener("submit", async event => {
         event.preventDefault();
+        const note = document.getElementById("formNote");
+        const button = form.querySelector('button[type="submit"]');
+        const buttonText = button.textContent;
+        const fields = Object.fromEntries(new FormData(form).entries());
 
-        document.getElementById("formNote").textContent =
-            "Thank you! This is a front-end demo. Connect a form backend to receive real enquiries.";
+        note.textContent = "";
+        button.disabled = true;
+        button.textContent = "Sending...";
 
-        form.reset();
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(fields)
+            });
+            const result = await response.json();
 
+            if (!response.ok) {
+                throw new Error(result.error || "Unable to send your message.");
+            }
+
+            note.textContent = result.message;
+            form.reset();
+        } catch (error) {
+            note.textContent = error instanceof Error
+                ? error.message
+                : "Unable to send your message. Please try again.";
+        } finally {
+            button.disabled = false;
+            button.textContent = buttonText;
+        }
     });
 
 }
@@ -419,6 +443,74 @@ document.querySelectorAll(
     observer.observe(element);
 
 });
+/* BLOG ARTICLES */
+
+const featuredArticles = document.getElementById("featuredArticles");
+const moreArticles = document.getElementById("moreArticles");
+
+function createArticleCard(article) {
+    const card = document.createElement("article");
+    card.className = "blog-card";
+
+    const image = document.createElement("img");
+    image.src = article.image;
+    image.alt = article.imageAlt;
+    image.loading = "lazy";
+
+    const content = document.createElement("div");
+    const metadata = document.createElement("small");
+    metadata.textContent = article.readMinutes
+        ? `${article.category} · ${article.readMinutes} MIN READ`
+        : article.category;
+
+    const title = document.createElement("h3");
+    title.textContent = article.title;
+
+    const excerpt = document.createElement("p");
+    excerpt.textContent = article.excerpt;
+
+    content.append(metadata, title, excerpt);
+    if (article.featured) {
+        const link = document.createElement("a");
+        link.href = "contact.html";
+        link.textContent = `${article.linkText} →`;
+        content.append(link);
+    }
+    card.append(image, content);
+    return card;
+}
+
+if (featuredArticles && moreArticles) {
+    const articlesNote = document.getElementById("articlesNote");
+
+    fetch("/api/articles")
+        .then(async response => {
+            const result = await response.json();
+            if (!response.ok) {
+                throw new Error(result.error || "Unable to load articles.");
+            }
+            if (!Array.isArray(result.articles)) {
+                throw new Error("The articles response is invalid.");
+            }
+            return result.articles;
+        })
+        .then(articles => {
+            featuredArticles.replaceChildren(
+                ...articles.filter(article => article.featured).map(createArticleCard)
+            );
+            moreArticles.replaceChildren(
+                ...articles.filter(article => !article.featured).map(createArticleCard)
+            );
+        })
+        .catch(() => {
+            if (articlesNote) {
+                articlesNote.hidden = false;
+                articlesNote.textContent =
+                    "Articles could not be refreshed. Showing the saved articles instead.";
+            }
+        });
+}
+
 /* NEWSLETTER SUBSCRIPTION */
 
 const newsletterForm =
